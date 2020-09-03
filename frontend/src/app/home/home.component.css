@@ -1,0 +1,29 @@
+#shirts {
+	display: flex;
+	justify-content: space-between;
+	flex-basis: 100%;
+}
+#shirts div {background: #d7d7d7;flex-basis: 100%;border-radius: 3px;display: flex;align-items: center;user-select: none;justify-content: center;transition: all .25s ease;}
+#shirts div:not(:last-child) {margin-right: 1em;}
+#shirts div[class~="product:shirts"] {background-color: #3498db;}
+#shirts div[class~="product:hats"] {background-color: #c13535;}
+#shirts div[class~="product:hoodies"] {background-color: #0c0c0c;}
+#shirts div img {transition: all .25s ease;user-select: none;pointer-events: none;max-width: 100%;}
+#shirts div:hover {transition: all .25s ease;cursor: pointer;box-shadow: inset 0 -1em 5em 0 rgba(0,0,0,.2);}
+#shirts div:hover img {transform: translate(-4px, -4px);filter: drop-shadow(4px 4px 0 rgba(0,0,0,.1));}
+#shirts div:not([class]):hover {box-shadow: inset 0 -1em 5em 0 rgba(0,0,0,.1);}
+#shirts div:not([class])::before {
+	content: "See more \0203A";
+	font-size: 2em;
+	font-weight: 300;
+	color: #7d7d7d;
+	transition: margin-left .25s linear;
+}
+#shirts div:not([class]):hover::before {transition: margin-left .25s linear;margin-left: 1em;}
+
+@media screen and (max-width: 1024px) {
+	#shirts {flex-direction: column-reverse;}
+	#shirts div {flex-basis: unset;height: 25vh;margin-bottom: 2em;}
+	#shirts div:not(:last-child) {margin-right: 0;}
+	#shirts div img {max-height: 80%;}
+}

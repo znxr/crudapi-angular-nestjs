@@ -1,0 +1,60 @@
+<div class="columns">
+	<div class="col">
+		<div class="alert t:success" style="margin-bottom: .5em;" *ngIf="alertsuccess">Product edited successfully</div>
+		<form method="POST" autocomplete="off" [formGroup]="editProductsForm" (ngSubmit)="onSubmit(editProductsForm.value)">
+			<div>
+				<label for="product_name">Name (current: {{ getProduct.name }})</label>
+				<input type="text" id="product_name" formControlName="name" maxlength="80" (keyup)="productDetails($event, 0)" [(ngModel)]="getProduct.name">
+			</div>
+			<div>
+				<label for="product_image">Image</label>
+				<input type="text" id="product_image" formControlName="image" (keyup)="productDetails($event, 1)" [(ngModel)]="getProduct.image">
+			</div>
+			<div class="scol">
+				<div>
+					<label for="product_price">Price (current: ${{ getProduct.price }})</label>
+					<input type="text" id="product_price" formControlName="price" (keyup)="productDetails($event, 2)" [(ngModel)]="getProduct.price">
+				</div>
+				<div>
+					<label for="product_color">Color (current: {{ getProduct.color }})</label>
+					<input type="text" id="product_color" formControlName="color" (keyup)="productDetails($event, 3)" placeholder="#000000" [(ngModel)]="getProduct.color">
+				</div>
+			</div>
+			<div class="scol">
+				<div>
+					<label for="product_length">Length (current: {{ getProduct.length }})</label>
+					<input type="number" min="0" id="product_length" formControlName="length" (keyup)="productDetails($event, 4)" [(ngModel)]="getProduct.length">
+				</div>
+				<div>
+					<label for="product_size">Size (current: {{ getProduct.size }})</label>
+					<select id="product_size" formControlName="size" (change)="productDetails($event, 5)" [(ngModel)]="getProduct.size">
+						<option value="XS">XS</option>
+						<option value="S">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+						<option value="XXL">XXL</option>
+					</select>
+				</div>
+			</div>
+			<button type="submit">Save</button>
+		</form>
+	</div>
+	<div class="col">
+		<div class="card">
+			<div class="preview:image" style="background-color: {{ pcolor }}">
+				<img src="{{ pimage }}">
+			</div>
+			<div class="col">
+				<div class="preview:name">
+					<h2>{{ pname ? pname : 'Product name' }}</h2>
+					<h3>${{ pprice ? pprice : '0,00' }}</h3>
+				</div>
+				<div class="preview:details">
+					<li>Length: <span>{{ plength ? plength : 0 }}</span></li>
+					<li>Size: <span>{{ psize ? psize : 'XS' }}</span></li>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

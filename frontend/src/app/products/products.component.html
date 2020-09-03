@@ -1,0 +1,20 @@
+<div class="alert t:info" *ngIf="loading">Loading...</div>
+<div class="alert t:info" *ngIf="getProducts && !getProducts.length">We currently have no products.</div>
+<div class="cards" *ngIf="getProducts">
+	<div class="card" *ngFor="let product of getProducts" id="product-{{ product.id }}">
+		<div id="productimage" style="background-color: {{ product.color }}">
+			<img src="{{ product.image }}">
+		</div>
+		<div id="productdetails">
+			<h2>{{ product.name }}</h2>
+			<h3>${{ product.price }}</h3>
+			<li>Color: <i class="productcolor" style="background-color: {{ product.color }}"></i></li>
+			<li>Length: <span>{{ product.length }}</span></li>
+			<li>Size: <span>{{ product.size }}</span></li>
+		</div>
+		<div id="productactions">
+			<a [routerLink]="['/edit',product.id]">Edit</a>
+			<a (click)="deleteItem($event,product.id)">Delete</a>
+		</div>
+	</div>
+</div>

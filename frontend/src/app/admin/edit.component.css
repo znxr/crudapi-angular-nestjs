@@ -1,0 +1,130 @@
+.columns {display: flex;justify-content: space-between;}
+.columns:not(:first-child) {border-top: 1px solid #e3e3e3;padding-top: 1em;margin-top: 1em;}
+.columns .col {flex-basis: 100%;}
+.columns .col:not(:last-child) {margin-right: 1em;}
+form {display: flex;flex-direction: column;user-select: none;}
+form label {
+	all: unset;
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: .8em;
+	color: #000;
+	margin-bottom: 0.5em;
+	font-weight: 500;
+	display: flex;
+}
+form input[type="text"],input[type="number"] {
+	all: unset;
+	background: #ffffff;
+	border: 1px solid #d7d7d7;
+	border-radius: 8px;
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-weight: 400;
+	color: #141414;
+	font-size: .9em;
+	width: 100%;
+	padding: 0 1em;
+	height: 2.8em;
+	margin-bottom: 0.5em;
+	box-sizing: border-box;
+}
+form select {
+	all: unset;
+	cursor: pointer;
+	background: #ffffff;
+	border: 1px solid #d7d7d7;
+	border-radius: 8px;
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-weight: 400;
+	color: #141414;
+	font-size: .9em;
+	width: 100%;
+	padding: 0 1em;
+	height: 2.8em;
+	margin-bottom: 0.5em;
+	box-sizing: border-box;
+	line-height: 2.5em;
+}
+form button[type="submit"] {
+	all: unset;
+	cursor: pointer;
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-weight: 500;
+	background: #5acc59;
+	border-radius: 8px;
+	height: 2.8em;
+	padding: 0 2em;
+	text-align: center;
+	color: #fff;
+	font-size: .9em;
+	box-sizing: border-box;
+	margin-left: auto;
+}
+form button[type="submit"]:hover {background: #3eb73d;}
+.columns .col .scol {display: flex;}
+.columns .col .scol>div {flex-basis: 100%;}
+.columns .col .scol>div:not(:last-child) {margin-right: .5em;}
+.columns .col .card {
+	display: flex;
+	flex-basis: 100%;
+	height: 100%;
+	border-radius: 8px;
+	overflow: hidden;
+	background: #ffffff;
+	box-shadow: 0 2px 4px 0 #e3e3e3;
+}
+.columns .col .card div[class~="preview:image"] {
+	background-color: #e6e6e6;
+	flex-basis: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.columns .col .card div[class~="preview:image"] img {max-width: 100%;pointer-events: none;user-select: none;}
+.columns .col .card div[class~="preview:name"] {
+	display: flex;
+	flex-direction: column;
+	padding: 2em;
+	user-select: none;
+}
+.columns .col .card div[class~="preview:name"] h2 {
+	font-weight: 300;
+	font-size: 1.6em;
+}
+.columns .col .card div[class~="preview:name"] h3 {
+	font-weight: 500;
+	font-size: 1.2em;
+}
+.columns .col .card div[class~="preview:details"] {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto 0 auto 0;
+	padding: 0 2em;
+}
+.columns .col .card div[class~="preview:details"] li {
+	list-style: none;
+	font-size: .9em;
+	color: #7d7d7d;
+	display: inline-block;
+}
+.columns .col .card div[class~="preview:details"] li:not(:last-child) {margin-bottom: 0.5em;}
+.columns .col .card div[class~="preview:details"] li i[class~="product:color"] {
+	all: unset;
+	vertical-align: middle;
+	display: inline-block;
+	background: #ffff;
+	width: 1em;
+	height: 1em;
+	border-radius: 100%;
+	box-shadow: 0 1px 2px 0 #e3e3e3;
+}
+.columns .col .card div[class~="preview:details"] li span {color: #141414;font-weight: 500;}
+
+@media screen and (max-width: 1024px) {
+	.columns {flex-direction: column;}
+	.columns .col {margin-bottom: 2em;}
+	.columns .col .card {flex-direction: column;}
+	.columns .col .card div[class~="preview:image"] {flex-basis: unset;height: 50vh;overflow: hidden;}
+	.columns .col .card div[class~="preview:image"] img {max-height: 50%;}
+}
